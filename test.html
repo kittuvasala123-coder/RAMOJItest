@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramoji Group - SAP Enterprise Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Left Section */
+    .left-section {
+      width: 55%;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Left */
+    .header-left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-left a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #111827;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-left a:hover {
+      color: #6b7280;
+    }
+
+    .nav-left svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+
+    /* Main Content Left */
+    .main-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 48px 64px;
+    }
+
+    .main-left h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+      max-width: 420px;
+    }
+
+    .main-left p {
+      font-size: 1rem;
+      color: #6b7280;
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      background-color: #111827;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: #1f2937;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #111827;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #9ca3af;
+    }
+
+    /* Company Logos */
+    .company-logos {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .company-logos span {
+      font-size: 1.25rem;
+      color: #9ca3af;
+    }
+
+    .logo-dhpl {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+    }
+
+    .logo-ukmpl {
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+
+    .logo-etpl {
+      font-weight: 500;
+    }
+
+    .logo-ramoji {
+      font-family: 'Georgia', serif;
+    }
+
+    /* Right Section */
+    .right-section {
+      width: 45%;
+      position: relative;
+    }
+
+    /* Header Right */
+    .header-right {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 20px 48px;
+      background: linear-gradient(to bottom, rgba(17, 24, 39, 0.8), transparent);
+    }
+
+    .header-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .btn-login {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .btn-login:hover {
+      color: #d1d5db;
+    }
+
+    .btn-sap {
+      background-color: #1f2937;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .btn-sap:hover {
+      background-color: #374151;
+    }
+
+    /* Background Image */
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(dark.png);
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Gradient Overlay */
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 128px;
+      background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.5), transparent);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .left-section {
+        width: 50%;
+      }
+      
+      .right-section {
+        width: 50%;
+      }
+
+      .header-left,
+      .main-left {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .main-left h1 {
+        font-size: 2.25rem;
+      }
+
+      .nav-left {
+        gap: 20px;
+      }
+
+      .company-logos {
+        gap: 24px;
+      }
+
+      .company-logos span {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column-reverse;
+      }
+
+      .left-section,
+      .right-section {
+        width: 100%;
+      }
+
+      .right-section {
+        height: 300px;
+      }
+
+      .gradient-overlay {
+        width: 100%;
+        height: 80px;
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to top, #ffffff, transparent);
+      }
+
+      .header-left {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-left {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-left h1 {
+        font-size: 1.875rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .company-logos {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Left Section -->
+  <div class="left-section">
+    <header class="header-left">
+      <!-- <a href="#" class="logo">Ramoji Group</a> -->
+
+      <nav class="nav-left">
+        <!-- <a href="#"> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 3h-8l-2 4h12l-2-4z"></path>
+          </svg>
+          Accounts
+        </a>
+        <!-- <a href="#"> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+          </svg>
+          Procurement
+        </a>
+        <!-- <a href="#"> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          Projects
+        </a>
+      </nav>
+    </header>
+
+    <main class="main-left">
+      <h1>Access SAP for DHPL UKMPL ETPL</h1>
+      
+      <!-- <p>Welcome to Ramoji Group's SAP platform. Streamline your business operations with our integrated enterprise resource planning system for accounts, procurement, projects, and quality management.</p> -->
+      
+      <div class="buttons">
+        <a href="https://my428379.s4hana.cloud.sap/ui?sap-client=100#Shell-home" class="btn-primary">LOG IN TO SAP</a>
+        <!-- <a href="#" class="btn-secondary">See Pricing</a> -->
+      </div>
+
+      <div class="company-logos">
+        <span class="logo-dhpl">DHPL</span>
+        <span class="logo-ukmpl">UKMPL</span>
+        <span class="logo-etpl">ETPL</span>
+      </div>
+    </main>
+  </div>
+
+  <!-- Right Section -->
+  <div class="right-section">
+    <header class="header-right">
+      <div class="header-right-actions">
+        <!-- <a  class="btn-login">LOG IN</a> -->
+        <a  class="btn-sap">Ramoji Group</a>
+      </div>
+    </header>
+
+    <div class="bg-image"></div>
+    <div class="gradient-overlay"></div>
+  </div>
+</body>
+</html>
